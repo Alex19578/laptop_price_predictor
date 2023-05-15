@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laptop prediction</title>
+</head>
+<body>
+  <h1>Laptop Price Predictor</h1><br>
+  <p>Select the features of the laptop</p><br>
+    <form method="post">
+        <label for="company">Company</label>
+        <select id="company" name="company">
+            <option value="0">Apple</option>
+            <option value="1">HP</option>
+            <option value="2">Acer</option>
+            <option value="3">Asus</option>
+            <option value="4">Dell</option>
+            <option value="5">Lenovo</option>
+            <option value="10">Chuwi</option>
+            <option value="6">MSI</option>
+            <option value="7">Microsoft</option>
+            <option value="10">Toshiba</option>
+            <option value="10">Huawei</option>
+            <option value="8">Xiaomi</option>
+            <option value="10">Vero</option>
+            <option value="10">Razer</option>
+            <option value="10">Mediacom</option>
+            <option value="9">Samsung</option>
+            <option value="10">Google</option>
+            <option value="10">Fujitsu</option>
+            <option value="10">LG</option>
+        </select>
+        <label for="type">Laptop type</label>
+        <select id="laptop_type" name="laptop_type">
+            <option value="1">Ultrabook</option>
+            <option value="2">Notebook</option>
+            <option value="3">Gaming</option>
+            <option value="2">2 in 1 Convertible</option>
+            <option value="4">Workstation</option>
+        </select>
+        <label for="display">display type</label>
+        <select id="display" name="display">
+            <option value="0">HD display</option>
+            <option value="1">full HD display</option>
+            <option value="2">full HD + touch screen display</option>
+            <option value="3">4k display</option>
+            <option value="4">4k + touch screen display</option>
+        </select>
+        <label id="display-size" for="display-size">display size</label>
+        <select id="display-size" name="display-size">
+            <option value="13">13 inches</option>
+            <option value="14">13-15 inches</option>
+            <option value="15">15-16 inches</option>
+            <option value="16">16 inches or larger</option>
+        </select>
+        <label id="processor" for="processor">processor</label>
+        <select id="processor" name="processor">
+            <option value="0">Celeron/Pentium/Core M/Atom</option>
+            <option value="1">i3</option>
+            <option value="1">i5</option>
+            <option value="1">i7</option>
+            <option value="5">intel Xeon</option>
+            <option value="3">AMD E-Series</option>
+            <option value="4">AMD A4-Series</option>
+            <option value="3">AMD Ryzen</option>
+            <option value="4">AMD A6-Series</option>
+            <option value="4">AMD A6-Series</option>
+            <option value="4">AMD A9-Series</option>
+            <option value="4">AMD A10-Series</option>
+            <option value="4">AMD A11-Series</option>
+            <option value="4">AMD A12-Series</option>
+            <option value="5">AMD FX</option>
+            <option value="5">Samsung</option>
+            <option value="3">AMD R4</option>
+            <option value="5">Others</option>
+        </select>
+        <label id="ram" for="ram">RAM</label>
+        <select id="ram" name="ram">
+            <option value="8">8GB</option>
+            <option value="16">16GB</option>
+            <option value="4">4GB</option>
+            <option value="2">2GB</option>
+            <option value="12">12GB</option>
+            <option value="6">6GB</option>
+            <option value="32">32GB</option>
+            <option value="24">24GB</option>
+            <option value="64">64GB</option>
+          </select>
+
+          <label id="storage" for="storage">storage</label>
+          <select id="storage" name="storage">
+            <option value="0">Less than 128GB</option>
+            <option value="1">128GB - 256GB</option>
+            <option value="2">256GB - 512GB</option>
+            <option value="3">512GB - 1TB</option>
+            <option value="4">1TB</option>
+            <option value="5">2TB</option>
+            <option value="6">1TB Hybrid</option>
+          </select>
+
+          <label id="gpu" for="gpu">GPU</label>
+          <select id="gpu" name="gpu">
+            <option value="0">ARM Mali</option>
+            <option value="0">AMD Radeon</option>
+            <option value="0">AMD FirePro</option>
+            <option value="0">AMD Radeon Pro</option>
+            <option value="1">Intel HD Graphics or Intel Graphics</option>
+            <option value="1">Intel Iris Plus</option>
+            <option value="1">Intel Iris Pro</option>
+            <option value="1">Intel UHD Graphics</option>
+            <option value="2">Nvidia GeForce</option>
+            <option value="2">Nvidia Quadro</option>
+            <option value="2">Nvidia GTX</option>
+            <option value="3">Others</option>
+          </select>
+
+          <label id="os" for="os">OS</label>
+          <select id="os" name="os">
+            <option value="0">macOS</option>
+            <option value="1">No OS</option>
+            <option value="2">Windows 10</option>
+            <option value="0">Mac OS X</option>
+            <option value="3">Linux</option>
+            <option value="4">Android</option>
+            <option value="4">Chrome OS</option>
+          </select>
+
+          <label id="weight" for="weight">Weight</label>
+          <select id="weight" name="weight">
+            <option value="1">0kg - 1.5kg</option>
+            <option value="2">&lt;2.5kg</option>
+            <option value="3">&lt;3.5kg</option>
+            <option value="4">&ge;3.5kg</option>
+          </select><br></br>
+          <input type="submit" value="Predict">
+
+        </form>
+        <div id="prediction" class="prediction" name="prediction">{{ prediction_score }}</div>
+
+    <div id="prediction" class="prediction" name="prediction">
+        {{ prediction }}
+    </div>
+
+    <style>
+      body {
+          margin: 0px;
+          padding: 0px;
+          font-size: 16px;
+          align-items: center;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: #262626;
+          color: #fff;
+          height: 100vh;
+        }
+        h1{
+          font-size: 40px;
+          font-weight: bold;
+          margin-bottom: 0px;
+          color: #a1a6b6;
+          width: 100%;
+          text-align: center;
+          
+        }
+        p{
+          font-size: 20px;
+          font-weight: bold;
+          color: #a1a6b6;
+          width: 100%;
+          text-align: center;
+        }
+
+        form {
+          position: absolute;
+          left: 30%;
+          width: 700px;
+          display:flex;
+          justify-content: center;
+          flex-direction:row;
+          justify-content: flex-start;
+          align-items: center;
+          flex-wrap: wrap;
+          margin-top: 20px;
+          
+        }
+        
+        label {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          display: none;
+          color: #a1a6b6;
+        }
+        
+        select {
+          margin: 5px;
+          width: 300px;
+          height: 45px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          background-color: #444;
+          color: #c8cbe0;
+          cursor: pointer;
+          margin-bottom: 10px;
+  
+        }
+        
+        input[type="submit"] {
+          position: relative;
+          left: 30%;
+          font-size: 16px;
+          margin: 30px;
+          width: 200px;
+          background-color: #0669cc89;
+          border: none;
+          color: #ffffff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 10px;
+          
+        }
+        
+        input[type="submit"]:hover {
+          color: #fff6f6;
+          background-color: #08122f;
+  
+        }
+        
+        select:hover {
+          background-color: #333;
+        }
+        
+        option {
+          font-size: 16px;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          background-color: #333;
+          color: #9c95ba;
+        }
+        
+        option:hover {
+          font-size: 16px;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          background-color: #535b63;
+        }
+        .prediction {
+          top: 52%;
+          left: 30%;
+          position: relative;
+          font-size: 20px;
+          font-weight: 100;
+          padding: 10px;
+          border-radius: 5px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          height: 30px;
+          width: 700px;
+          border: none;
+          background-color: #535b63;
+          color: #ece4e4;
+        }
+        
+  </style>
+
+</body>
+</html>
