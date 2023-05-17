@@ -1,14 +1,11 @@
 {
   "version": 2,
- "builds": [
-  {
-    "src": "app.py",
-    "use": "@vercel/python",
-    "env": {
-      "VERCEL_BUILD_COMMAND": "pip install -r requirements.txt"
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
     }
-  }
-],
+  ],
   "routes": [
     {
       "src": "/(.*)",
@@ -16,6 +13,6 @@
     }
   ],
   "env": {
-    "FLASK_ENV": "production"
+    "VERCEL_BUILD_COMMAND": "pip install -r requirements.txt"
   }
 }
