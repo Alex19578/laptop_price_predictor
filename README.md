@@ -22,29 +22,19 @@ To run the Laptop Price Predictor locally, follow these steps:
 
 git clone https://github.com/Alex19578/laptop-price-predictor.git
 
-css
-
-
 2. Navigate to the project directory:
 
 cd laptop-price-predictor
-
-markdown
 
 
 3. Install the required dependencies:
 
 pip install -r requirements.txt
 
-markdown
-
 
 4. Start the application:
 
 python app.py
-
-less
-
 
 5. Open your web browser and visit [http://localhost:5000](http://localhost:5000) to access the Laptop Price Predictor.
 
@@ -72,7 +62,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or feedback, please contact us at laptoppricepredictor@example.com.
+For any inquiries or feedback, please contact,
 
 **Note:** This project is for educational and demonstration purposes only. The predicted prices may not reflect actual market prices.
 
